@@ -55,6 +55,11 @@ namespace ProEventos.API
 
             app.UseAuthorization();
 
+            // Configurando CORS para permitir que o front-end acesse a API sem restrições
+            app.UseCors(c => c.AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowAnyOrigin());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
